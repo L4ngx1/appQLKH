@@ -88,7 +88,7 @@ namespace appQLKH
                 DataGridViewRow dataGridViewRow = dgvQLKH.CurrentRow;
                 if (dgvQLKH.SelectedRows.Count <= 0)
                 {
-                    MessageBox.Show("Cần chọn 1 dòng để sửa");
+                    MessageBox.Show("Vui lòng chọn một khách hàng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 conn.Open();
@@ -140,14 +140,28 @@ namespace appQLKH
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            // Check if there is a selected row
+            if (dgvQLKH.CurrentRow == null || dgvQLKH.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Vui lòng chọn một khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow dataGridViewRow = dgvQLKH.CurrentRow;
+            object maKHObj = dataGridViewRow.Cells[0].Value;
+            string MaKH = maKHObj != null ? maKHObj.ToString() : string.Empty;
+
+            if (string.IsNullOrEmpty(MaKH))
+            {
+                MessageBox.Show("Không tìm thấy mã khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (DialogResult.No == MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 return;
             }
             using (SqlConnection conn = Connection.GetSqlConnection())
             {
-                DataGridViewRow dataGridViewRow = dgvQLKH.CurrentRow;
-                string MaKH = dataGridViewRow.Cells[0].Value.ToString();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM KhachHang WHERE MaKH = @MaKH", conn);
                 cmd.Parameters.AddWithValue("@MaKH", MaKH);
