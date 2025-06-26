@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appQLKH", "appQLKH\appQLKH.csproj", "{B598F4B3-87E4-4354-9677-CC094B9653CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B598F4B3-87E4-4354-9677-CC094B9653CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B598F4B3-87E4-4354-9677-CC094B9653CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B598F4B3-87E4-4354-9677-CC094B9653CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B598F4B3-87E4-4354-9677-CC094B9653CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C4DBD78-E41C-46AF-A062-414B9104DD2E}
+	EndGlobalSection
+EndGlobal
